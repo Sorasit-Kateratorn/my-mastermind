@@ -7,15 +7,15 @@ class MastermindGame:
     def __init__(self, num_colors, num_positions):
         self.num_colors = num_colors
         self.num_positions = num_positions
-        self.secret_code = [random.randint(
+        self.__secret_code = [random.randint(
             1, num_colors) for _ in range(num_positions)]
 
     def check_guess(self, guess):
         clues = []
         for i in range(self.num_positions):
-            if guess[i] == self.secret_code[i]:
+            if guess[i] == self.__secret_code[i]:
                 clues.append('*')
-            elif guess[i] in self.secret_code:
+            elif guess[i] in self.__secret_code:
                 clues.append('o')
             else:
                 clues.append(' ')
